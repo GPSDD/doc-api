@@ -48,7 +48,7 @@ Remember — the response is jsonapi format
           "slug": "total-co2-emissions-by-year",
           "userId": "5858f37140621f11066fb2f7",
           "application": [
-            "rw"
+            "data4sdgs"
           ],
           "name": "Total CO2 emissions by year",
           "default": false,
@@ -57,7 +57,7 @@ Remember — the response is jsonapi format
           "iso": [],
           "description": null,
           "layerConfig": {
-            "account": "rw",
+            "account": "data4sdgs",
             "body": {
               "maxzoom": 18,
               "minzoom": 3,
@@ -112,7 +112,7 @@ dataset   |                          Filter the layers by dataset uuid          
 sort      |                      Sort json response by specific attributes                       |    Text
 status    |                Filter layers on status (pending, saved, failed, all)                 |    Text
 published |                   Filter layers on published status (true, false)                    | Boolean
-app       |                   Filter layers on application (prep, gfw, etc..)                    |    Text
+app       |                   Filter layers on application (data4sdgs, etc..)                    |    Text
 env       | Environment in witch the layer was published, one of `preproduction` or `production` |    Text
 
 > Return the layers filtered by those whose name contains emissions
@@ -189,7 +189,7 @@ Remember — the response is jsonapi format
       "slug": "total-co2-emissions-by-year",
       "userId": "5858f37140621f11066fb2f7",
       "application": [
-        "rw"
+        "data4sdgs"
       ],
       "name": "Total CO2 emissions by year",
       "default": false,
@@ -198,7 +198,7 @@ Remember — the response is jsonapi format
       "iso": [],
       "description": null,
       "layerConfig": {
-        "account": "rw",
+        "account": "data4sdgs",
         "body": {
           "maxzoom": 18,
           "minzoom": 3,
@@ -243,7 +243,7 @@ Field             |                                                             
 ----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------: | -----: | ----------------------------------------------: | -------:
 name              |                                                                      Name of the layer                                                                      |   Text |                                        Any Text |      Yes
 description       |                                                                 Description of the dataset                                                                  |   Text |                                        Any text |       No
-application       |                                                           Application to which the layer belongs                                                            |  Array | gfw, forest-atlas, rw, prep, aqueduct, data4sdg |      Yes
+application       |                                                           Application to which the layer belongs                                                            |  Array |                                        data4sdg |      Yes
 layerConfig       | Custom configuration, [rw definition example](https://github.com/resource-watch/notebooks/blob/develop/ResourceWatch/Api_definition/layer_definition.ipynb) | Object |                                    Valid object |       No
 legendConfig      |                                                                    Custom configuration                                                                     | Object |                                    Valid object |       No
 applicationConfig |                                                                    Custom configuration                                                                     | Object |                                    Valid object |       No
@@ -278,7 +278,7 @@ Field             |              Description               |   Type |           
 ----------------- | :------------------------------------: | -----: | ----------------------------------------------: | -------:
 name              |           Name of the layer            |   Text |                                        Any Text |      Yes
 description       |       Description of the dataset       |   Text |                                        Any text |       No
-application       | Application to which the layer belongs |  Array | gfw, forest-atlas, rw, prep, aqueduct, data4sdg |      Yes
+application       | Application to which the layer belongs |  Array |                                        data4sdg |      Yes
 layerConfig       |          Custom configuration          | Object |                                    Valid object |       No
 legendConfig      |          Custom configuration          | Object |                                    Valid object |       No
 applicationConfig |          Custom configuration          | Object |                                    Valid object |       No

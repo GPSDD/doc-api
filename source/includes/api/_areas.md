@@ -20,10 +20,10 @@ curl -X POST https://api.resourcewatch.org/v1/area?application=<application>
 
 ### Example
 
-Areas created by an user for the application RW.
+Areas created by an user for the application DH.
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/area?application=rw
+curl -X POST https://api.resourcewatch.org/v1/area?application=data4sdgs
 -H "Authorization: Bearer <your-token>"
 ```
 
@@ -35,7 +35,7 @@ curl -X POST https://api.resourcewatch.org/v1/area?application=rw
       "id": "59ca3213d08a7d001054522b",
       "attributes": {
         "name": "Test area France",
-        "application": "rw",
+        "application": "data4sdgs",
         "geostore": "8f77fe62cf15d5098ba0ee11c5126aa6",
         "userId": "58e22f662071c01c02f76a0f",
         "createdAt": "2017-09-26T10:55:15.990Z",
@@ -56,7 +56,7 @@ curl -X POST https://api.resourcewatch.org/v1/area?application=rw
       "id": "59ca32ea3209db0014e9a7b7",
       "attributes": {
         "name": "Test custom area",
-        "application": "rw",
+        "application": "data4sdgs",
         "geostore": "b12640deba9d3c5012c5359dd5572e2d",
         "userId": "58e22f662071c01c02f76a0f",
         "createdAt": "2017-09-26T10:58:50.226Z",
@@ -101,15 +101,15 @@ curl -X POST https://api.resourcewatch.org/v1/area \
 
 ### Example
 
-Create an area with name 'Portugal area' and Geostore ID '713899292fc118a915741728ef84a2a7' for the Resource Watch application
+Create an area with name 'Portugal area' and Geostore ID '713899292fc118a915741728ef84a2a7' for the Data Highways application
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/area?application=rw \
+curl -X POST https://api.resourcewatch.org/v1/area?application=data4sdgs \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
  '{
    "name": "Portugal area",
-   "application": "rw",
+   "application": "data4sdgs",
    "geostore": "713899292fc118a915741728ef84a2a7"
  }'
 ```
@@ -121,7 +121,7 @@ curl -X POST https://api.resourcewatch.org/v1/area?application=rw \
     "id": "5a0da028e6d876001080c259",
     "attributes": {
       "name": "Portugal area",
-      "application": "rw",
+      "application": "data4sdgs",
       "geostore": "713899292fc118a915741728ef84a2a7",
       "userId": "58e22f662071c01c02f76a0f",
       "createdAt": "2017-11-16T14:26:48.396Z",
@@ -179,7 +179,7 @@ curl -X GET https://api.resourcewatch.org/v1/area/59ca32ea3209db0014e9a7b7 \
         "id": "59ca32ea3209db0014e9a7b7",
         "attributes": {
             "name": "Test custom area",
-            "application": "rw",
+            "application": "data4sdgs",
             "geostore": "b12640deba9d3c5012c5359dd5572e2d",
             "userId": "58e22f662071c01c02f76a0f",
             "createdAt": "2017-09-26T10:58:50.226Z",

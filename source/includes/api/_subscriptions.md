@@ -1,6 +1,6 @@
 # Subscriptions
 
-Subscription represents to wich datasets and analyisis a user can have access to.
+Subscription represents to which datasets and analysis a user can have access to.
 
 <aside class="notice">
 Remember — All subscription endpoints need to be authenticated.
@@ -11,7 +11,7 @@ Remember — All subscription endpoints need to be authenticated.
 Field         |                            Description                            |               Type
 ------------- | :---------------------------------------------------------------: | -----------------:
 name          |                               Name                                |               Text
-application   |                  Application of the subscription                  |      gfw, rw, prep
+application   |                  Application of the subscription                  |          data4sdgs
 language      | Language of the subscriptions (used to select the email template) | en, es, fr, pt, zh
 resource      |   This field contains the subscription is of type email or hook   |             Object
 -- type       |                               Type                                |       EMAIL or URL

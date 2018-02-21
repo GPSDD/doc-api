@@ -149,13 +149,13 @@ Filter        | Description                                                     
 ------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 name          | Allow us to filter by name                                                   | any valid text
 type          | Allow us to distinguish between tabular and raster datasets                  | `raster` or `tabular`
-app           | Aplications to which this dataset is being used                              | Available Aplications like: `["data4sdgs","gfw","rw","aqueduct","prep","forest-atlas","gfw-climate","aqueduct-water-risk","test","gfw-pro","globalforestwatch", "ghg-gdp"]`
+app           | Applications to which this dataset is being used                             | Available Applications: `["data4sdgs"]`
 connectorType |                                                                              | `rest` or `document`
 provider      | Dataset provider this include inner connectors and 3rd party ones            | [A valid dataset provider](##supported-dataset-sources)
 userId        | the user who registered the dataset                                          | valid id
 status        | the internal dataset status at connection time                               | `pending`, `saved` or `failed`
 published     |                                                                              | `true`or `false`
-env           | If the dataset is in preproduction envirenment or in production one          | `production`or `preproduction`
+env           | If the dataset is in preproduction environment or in production one          | `production`or `preproduction`
 overwritted   | If the data can be overwritten (only for being able to make dataset updates) | `true`or `false`
 verify        | If this dataset contains data that is verified using blockchain              | `true`or `false`
 protected     | If it's a protected layer                                                    | `true`or `false`
@@ -170,7 +170,7 @@ curl -X GET https://api.resourcewatch.org/v1/dataset?name=birds&provider=cartodb
 > For inclusive filtering with array props use '@'
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?app=gfw@rw@prep
+curl -X GET https://api.resourcewatch.org/v1/dataset?app=data4sdgs@anotherapp
 ```
 
 ### Sorting
@@ -241,7 +241,7 @@ curl -X GET https://api.resourcewatch.org/v1/dataset/51943691-eebc-4cb4-bdfb-057
             "slug": "Timber-Production-RDC-test-1490086842132",
             "type": null,
             "subtitle": null,
-            "application": ["forest-atlas"],
+            "application": ["data4sdgs"],
             "dataPath": null,
             "attributesPath": null,
             "connectorType": "document",
@@ -332,7 +332,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
     "provider":"cartodb",
     "connectorUrl":"https://wri-01.carto.com/tables/wdpa_protected_areas/table",
     "application":[
-     "gfw", "forest-atlas"
+     "data4sdgs"
     ],
     "name":"World Database on Protected Areas -- Global"
 }'
@@ -353,7 +353,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
     "provider":"featureservice",
     "connectorUrl":"https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0?f=json",
     "application":[
-     "prep"
+     "data4sdgs"
     ],
     "name":"Uncontrolled Public-Use Airports -- U.S."
 }'
@@ -374,7 +374,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
     "provider":"gee",
     "tableName": "JRC/GSW1_0/GlobalSurfaceWater"
     "application":[
-     "rw"
+     "data4sdgs"
     ],
     "name":"Water occurrence"
 }'
@@ -391,7 +391,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
     "provider":"nexgddp",
     "tableName": "historical/ACCESS1_0"
     "application":[
-     "rw"
+     "data4sdgs"
     ],
     "name":"Nexgddp"
 }'
@@ -410,7 +410,7 @@ curl -XPOST 'https://api.resourcewatch.org/v1/dataset' -d \
     "provider":"rasdaman",
     "connectorUrl":"rw.dataset.raw/1508321309784_test_rasdaman_1b.tiff",
     "application":[
-     "rw"
+     "data4sdgs"
     ],
     "name":"rasdaman dataset"
 }'
@@ -466,7 +466,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
     "provider":"csv",
     "connectorUrl":"https://gfw2-data.s3.amazonaws.com/alerts-tsv/glad_headers.csv",
     "application":[
-     "gfw"
+     "data4sdgs"
     ],
     "legend": {
       "lat": "lat",
