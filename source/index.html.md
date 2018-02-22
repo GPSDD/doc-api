@@ -11,16 +11,13 @@ toc_footers:
 includes:
   - api/authentication
   - api/dataset
-  - api/layer
   - api/query
   - api/fields
   - api/metadata
   - api/vocabulary
   - api/geostore
-  - api/subscriptions
   - api/favourites
   - api/graph
-  - api/areas
   - errors
 
 logo: logo-rw.png
