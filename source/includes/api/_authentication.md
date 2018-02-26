@@ -1,6 +1,6 @@
 # Authentication
 
-The RW API uses JWT [(JSON Web Tokens)](https://tools.ietf.org/html/rfc7519) to identify and authenticate its users. This token must be provided inside an `Authorization` header, with the form `Bearer: <token>`.
+The DH API uses JWT [(JSON Web Tokens)](https://tools.ietf.org/html/rfc7519) to identify and authenticate its users. This token must be provided inside an `Authorization` header, with the form `Bearer: <token>`.
 
 ## How to generate your private token
 
@@ -11,7 +11,7 @@ To generate your own token, perform the following steps:
 
 ![Control Tower login page](images/authentication/login.png)
 
-You can login with your WRI credentials (email and password) or with other auth providers (a Google, Facebook, or Twitter account). If you can't remember your password (don't worry! it happens to everyone!) you can reset your password clicking on 'Recover password'.
+You can login with your DH credentials (email and password) or with other auth providers (a Google, Facebook, or Twitter account). If you can't remember your password (don't worry! it happens to everyone!) you can reset your password clicking on 'Recover password'.
 
 2. After logging in you will be redirected to the Control Tower application and you will see its front page:
 ![Control Tower Dashboard](images/authentication/control-tower.png)
@@ -40,4 +40,4 @@ curl -X POST https://api.resourcewatch.org/auth/user \
 }'
 ```
 
-There are three allowed roles: `USER`, `MANAGER` and `ADMIN`. The 'apps' field only permits applications that are powered by the API: `rw`, `gfw`, `prep`, etc.
+There are three allowed roles: `USER`, `MANAGER` and `ADMIN`. The 'apps' field should have the `data4sdgs` application.

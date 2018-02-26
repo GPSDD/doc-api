@@ -1,6 +1,6 @@
 # Errors
 
-The Resource Watch API uses the following error codes:
+The Data Highways API uses the following error codes:
 
 
 Error Code | Meaning

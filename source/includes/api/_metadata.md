@@ -60,7 +60,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/<dataset-id>/metadata \
 curl -X POST https://api.resourcewatch.org/v1/dataset/942b3f38-9504-4273-af51-0440170ffc86/metadata \
 -H "Content-Type: application/json"  -d \
  '{
-   "application": "rw",
+   "application": "data4sdgs",
    "language": "en"
   }'
 ```
@@ -75,7 +75,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/942b3f38-9504-4273-af51-04
       "type": "metadata",
       "attributes": {
         "dataset": "942b3f38-9504-4273-af51-0440170ffc86",
-        "application": "rw",
+        "application": "data4sdgs",
         "resource": {
           "type": "dataset",
           "id": "942b3f38-9504-4273-af51-0440170ffc86"
@@ -117,7 +117,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/<dataset-id>/layer/<layer-
 
 application filter:
 ```
-application: gfw, gfw-climate, prep, rw, forest-atlas (select one or some of them)
+application: data4sdgs (select one or more if available)
 ```
 
 language filter:
@@ -174,7 +174,7 @@ curl -X PATCH https://api.resourcewatch.org/v1/dataset/<dataset-id>/metadata \
 curl -X PATCH https://api.resourcewatch.org/v1/dataset/942b3f38-9504-4273-af51-0440170ffc86/metadata \
 -H "Content-Type: application/json"  -d \
  '{
-   "application": "rw",
+   "application": "data4sdgs",
    "language": "en",
    "name": "Cloud Computing Market - USA - 2016",
    "source": "http://www.forbes.com/",
@@ -197,7 +197,7 @@ curl -X PATCH https://api.resourcewatch.org/v1/dataset/942b3f38-9504-4273-af51-0
       "type": "metadata",
       "attributes": {
         "dataset": "942b3f38-9504-4273-af51-0440170ffc86",
-        "application": "rw",
+        "application": "data4sdgs",
         "resource": {
           "type": "dataset",
           "id": "942b3f38-9504-4273-af51-0440170ffc86"
@@ -231,7 +231,7 @@ curl -X DELETE https://api.resourcewatch.org/v1/dataset/<dataset-id>/metadata?ap
 > Real example
 
 ```shell
-curl -X DELETE https://api.resourcewatch.org/v1/dataset/942b3f38-9504-4273-af51-0440170ffc86/metadata?application=rw&language=en \
+curl -X DELETE https://api.resourcewatch.org/v1/dataset/942b3f38-9504-4273-af51-0440170ffc86/metadata?application=data4sdgs&language=en \
 ```
 
 ## Getting all
@@ -256,11 +256,11 @@ curl -X GET https://api.resourcewatch.org/v1/metadata?type=widget
 ```
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/metadata?application=rw&language=es,en&limit=20
+curl -X GET https://api.resourcewatch.org/v1/metadata?application=data4sdgs&language=es,en&limit=20
 ```
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/metadata?application=rw,gfw&language=en&type=dataset
+curl -X GET https://api.resourcewatch.org/v1/metadata?application=data4sdgs&language=en&type=dataset
 ```
 
 ```shell
@@ -276,7 +276,7 @@ payload -> {"ids": "112313, 111123"}
 
 application filter:
 ```
-application: gfw, gfw-climate, prep, rw, forest-atlas (select one or some of them)
+application: data4sdgs (or others available)
 ```
 
 language filter:
@@ -323,7 +323,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/metadata/find-by-ids \
       "type": "metadata",
       "attributes": {
         "dataset": "b000288d-7037-43ba-aa34-165eab549613",
-        "application": "prep",
+        "application": "data4sdgs",
         "resource": {
           "type": "dataset",
           "id": "b000288d-7037-43ba-aa34-165eab549613"
@@ -354,7 +354,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/metadata/find-by-ids \
       "type": "metadata",
       "attributes": {
         "dataset": "942b3f38-9504-4273-af51-0440170ffc86",
-        "application": "rw",
+        "application": "data4sdgs",
         "resource": {
           "type": "dataset",
           "id": "942b3f38-9504-4273-af51-0440170ffc86"
