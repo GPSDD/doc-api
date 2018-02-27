@@ -20,9 +20,7 @@ spec:
         resources:
           limits:
             memory: "512Mi"
-        args:
-          - start
         ports:
-          - containerPort: 8080
+          - containerPort: 80
 
       restartPolicy: Always
