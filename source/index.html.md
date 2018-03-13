@@ -20,7 +20,7 @@ includes:
   - api/graph
   - errors
 
-logo: logo-sdgs.png
+logo: logo-api-highways.svg
 
 search: true
 ---

@@ -1,8 +1,8 @@
-# Documentation of RW API
+# Documentation of Data Highways API
 
 To see the documentation, you access to:
 
-[https://resource-watch.github.io/doc-api](https://resource-watch.github.io/doc-api)
+[https://doc.apihighways.org/](https://doc.apihighways.org/)
 
 Created with slate project:
 
