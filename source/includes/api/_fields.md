@@ -11,13 +11,13 @@ Once the dataset is properly created and saved, it is possible to access to its 
 To do that, it is necessary to use of the following endpoint:
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/fields/<dataset-id>
+curl -X GET https://api.apihighways.org/v1/fields/<dataset-id>
 ```
 
 > Real example
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/fields/1170030b-9725-4bfe-8fb4-1b0eb81020d2
+curl -X GET https://api.apihighways.org/v1/fields/1170030b-9725-4bfe-8fb4-1b0eb81020d2
 ```
 
 > Response
@@ -55,7 +55,7 @@ The structure of datacubes needs a more verbose field specification. The fields 
 > Example
 
 ```shell
-curl -i  -XGET 'http://api.resourcewatch.org/v1/fields/491ae6fe-6767-44d1-b5c3-c7b8b384bb7a'
+curl -i  -XGET 'http://api.apihighways.org/v1/fields/491ae6fe-6767-44d1-b5c3-c7b8b384bb7a'
 ```
 
 > Response

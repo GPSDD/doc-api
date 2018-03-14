@@ -7,7 +7,7 @@ The following graph endpoints are available
 Returns a list including all the concepts present in the graph
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/graph/query/list-concepts
+curl -X GET https://api.apihighways.org/v1/graph/query/list-concepts
 ```
 
 ### Query example
@@ -63,7 +63,7 @@ concepts         |           List of concepts            |    Text |            
 
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/graph/query/concepts-inferred?concepts=<concept_list>
+curl -X GET https://api.apihighways.org/v1/graph/query/concepts-inferred?concepts=<concept_list>
 ```
 
 ### Example
@@ -71,7 +71,7 @@ curl -X GET https://api.resourcewatch.org/v1/graph/query/concepts-inferred?conce
 Concepts inferred from the set: ['spain', 'raster']
 
 ```url
-https://api.resourcewatch.org/v1/graph/query/concepts-inferred?concepts=spain,raster
+https://api.apihighways.org/v1/graph/query/concepts-inferred?concepts=spain,raster
 ```
 
 ```
@@ -204,7 +204,7 @@ Parameter        |               Description               |    Type |          
 concepts         |           List of concepts            |    Text |                                        Any Text, values separated by commas |      Yes
 
 ```shell
-https://api.resourcewatch.org/v1/graph/query/concepts-ancestors?concepts=<concept_list>
+https://api.apihighways.org/v1/graph/query/concepts-ancestors?concepts=<concept_list>
 ```
 
 ### Example
@@ -212,7 +212,7 @@ https://api.resourcewatch.org/v1/graph/query/concepts-ancestors?concepts=<concep
 Ancestors of the concepts from the set: ['forest_cover', 'landslide']
 
 ```url
-https://api.resourcewatch.org/v1/graph/query/concepts-ancestors?concepts=forest_cover,landslide
+https://api.apihighways.org/v1/graph/query/concepts-ancestors?concepts=forest_cover,landslide
 ```
 
 ```
@@ -263,7 +263,7 @@ https://api.resourcewatch.org/v1/graph/query/concepts-ancestors?concepts=forest_
 Returns a set of datasets that are similar to the dataset provider sorted by their degree of similarity.
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/graph/query/similar-dataset/<dataset-id>
+curl -X GET https://api.apihighways.org/v1/graph/query/similar-dataset/<dataset-id>
 ```
 
 ### Parameters available
@@ -280,7 +280,7 @@ limit | Maximum number of datasets returned by the endpoint | Integer | A positi
 Datasets that are similar to the dataset with id `63a7a997-695d-4629-b6e9-9b169f5c69b` including only those that are **published** with a **limit of 6 results** in total, datasets from both `production` and `preproduction` environments are included.
 
 ```url
-https://api.resourcewatch.org/v1/graph/query/similar-dataset/63a7a997-695d-4629-b6e9-9b169f5c69bf?published=true&env=production,preproduction&app=rw&limit=6
+https://api.apihighways.org/v1/graph/query/similar-dataset/63a7a997-695d-4629-b6e9-9b169f5c69bf?published=true&env=production,preproduction&app=rw&limit=6
 ```
 
 ```
@@ -339,7 +339,7 @@ https://api.resourcewatch.org/v1/graph/query/similar-dataset/63a7a997-695d-4629-
 Returns a set of datasets that are similar to the dataset provider sorted by their degree of similarity as well as taking into account ancestor concepts.
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/graph/query/similar-dataset-including-descendent/<dataset-id>
+curl -X GET https://api.apihighways.org/v1/graph/query/similar-dataset-including-descendent/<dataset-id>
 ```
 
 ### Parameters available
@@ -356,7 +356,7 @@ limit | Maximum number of datasets returned by the endpoint | Integer | A positi
 Datasets that are similar to the dataset with id `03bfb30e-829f-4299-bab9-b2be1b66b5d4` including only those that are **published** with a **limit of 6 results** in total, datasets from both `production` and `preproduction` environments are included.
 
 ```url
-https://api.resourcewatch.org/v1/graph/query/similar-dataset-including-descendent/03bfb30e-829f-4299-bab9-b2be1b66b5d4?published=true&env=production,preproduction&app=rw&limit=6
+https://api.apihighways.org/v1/graph/query/similar-dataset-including-descendent/03bfb30e-829f-4299-bab9-b2be1b66b5d4?published=true&env=production,preproduction&app=rw&limit=6
 ```
 
 ```
@@ -424,7 +424,7 @@ This endpoint performs a dataset search based on the concepts provided and the t
 application. Ancestors of the tags directly associated to a datasets are taken into account in the search.
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/graph/query/search-datasets?concepts[0][0]='water'
+curl -X GET https://api.apihighways.org/v1/graph/query/search-datasets?concepts[0][0]='water'
 ```
 
 Up to three sets of concepts can be provided as shown in the example below.
@@ -436,7 +436,7 @@ Given the following sets of concepts:
 
 The url should be formed as follows:
 
-`https://api.resourcewatch.org/v1/graph/query/search-datasets?concepts[0][0]=spain,concepts[0][1]=europe,concepts[1][0]=water,concepts[2][0]=raster,concepts[2][1]=geospatial`
+`https://api.apihighways.org/v1/graph/query/search-datasets?concepts[0][0]=spain,concepts[0][1]=europe,concepts[1][0]=water,concepts[2][0]=raster,concepts[2][1]=geospatial`
 
 **AND** logical operators are applied among the sets while **OR** is used for set elements.
 
@@ -453,7 +453,7 @@ page[size] | Maximum number of results returned by the endpoint | Number | No
 
 Search for datasets with the tag `global` and `water` and at least one of the two tags: `raster`, `geospatial`. The resulting datasets should also be published and be categorized either as `production` or `preproduction` and belong to the application `rw`. The total number of results returned won't be limited since a very high number has been provided as limit _(999999)_.
 
-`https://api.resourcewatch.org/v1/graph/query/search-datasets?concepts[0][0]=global&concepts[1][0]=water&concepts[2][0]=raster&concepts[2][1]=geospatial&published=true&env=production,preproduction&app=rw&page[size]=999999`
+`https://api.apihighways.org/v1/graph/query/search-datasets?concepts[0][0]=global&concepts[1][0]=water&concepts[2][0]=raster&concepts[2][1]=geospatial&published=true&env=production,preproduction&app=rw&page[size]=999999`
 
 ```
 {
@@ -489,7 +489,7 @@ Search for datasets with the tag `global` and `water` and at least one of the tw
 This endpoint returns the list of the most liked datasets in descending order.
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/graph/query/most-liked-datasets
+curl -X GET https://api.apihighways.org/v1/graph/query/most-liked-datasets
 ```
 
 ### Example of result

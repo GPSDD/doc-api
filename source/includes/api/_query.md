@@ -5,14 +5,14 @@ In order to retrieve data from the datasets it is possible to send queries to th
 It is possible to refer to the dataset using its table name, its slug or just its id. Two different endpoints are provided (under the dataset path and a generic one) and the sql query can be provided via query parameters or in the body of a POST request.
 
 ```shell
-curl -i -H 'Authorization: Bearer your-token>' -H 'Content-Type: application/json' -XPOST 'http://api.resourcewatch.org/v1/query/<dataset_id>/' -d '{
+curl -i -H 'Authorization: Bearer your-token>' -H 'Content-Type: application/json' -XPOST 'http://api.apihighways.org/v1/query/<dataset_id>/' -d '{
     "sql": "select * from <dataset_id> limit 10"
 }
 '
 ```
 
 ```shell
-curl -i -XGET http\://api.resourcewatch.org/v1/query\?sql\=select\ \*\ from\ <dataset.slug>
+curl -i -XGET http\://api.apihighways.org/v1/query\?sql\=select\ \*\ from\ <dataset.slug>
 ```
 
 ```
@@ -69,7 +69,7 @@ It is possible generate a json file in a bucket of the sql result. You only need
 </aside>
 
 ```shell
-curl -i -XGET http\://api.resourcewatch.org/v1/query\?sql\=select\ \*\ from\ <dataset.slug>&freeze=true
+curl -i -XGET http\://api.apihighways.org/v1/query\?sql\=select\ \*\ from\ <dataset.slug>&freeze=true
 ```
 
 ## Rasdaman queries
@@ -77,7 +77,7 @@ curl -i -XGET http\://api.resourcewatch.org/v1/query\?sql\=select\ \*\ from\ <da
 SQL-like queries can be employed for accessing data stored in Rasdaman datasets. Subsets on the original axes of the data may be provided in the WHERE statement. So far, only operations that result in a single scalar can be obtained from Rasdaman - averages, minimums, maximums.
 
 ```shell
-curl -XGET https://api.resourcewatch.org/v1/query?sql=select avg(Green) from 18c0b71d-2f55-4a45-9e5b-c35db3ebfe94 where Lat > 0 and  Lat < 45 \
+curl -XGET https://api.apihighways.org/v1/query?sql=select avg(Green) from 18c0b71d-2f55-4a45-9e5b-c35db3ebfe94 where Lat > 0 and  Lat < 45 \
 	-H 'Content-Type: application/json' \
 	-H 'Authorization: Bearer <token>'
 ```
@@ -91,23 +91,23 @@ A SQL wrapper is offered for accessing the NASA NEX-GDDP dataset with sql-like s
 Access spatial aggregates over the data by listing all dataset data for a particular year:
 
 ```shell
-curl -i -XGET http\://api.resourcewatch.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ \*\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ where\ year\ \=\ 1960
+curl -i -XGET http\://api.apihighways.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ \*\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ where\ year\ \=\ 1960
 ```
 
 Access particular aggregates:
 
 ```shell
-curl -i -XGET http\://api.resourcewatch.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ avg\,\ min\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ where\ year\ \=\ 1960
+curl -i -XGET http\://api.apihighways.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ avg\,\ min\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ where\ year\ \=\ 1960
 ```
 
 Calculate statistics for a range of years:
 
 ```shell
-curl -i -XGET http\://api.resourcewatch.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ \*\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ \ where\ year\ between\ 1960\ and\ 1962
+curl -i -XGET http\://api.apihighways.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ \*\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ \ where\ year\ between\ 1960\ and\ 1962
 ```
 
 You can delimit an area of interest by providing a geostore id as a parameter:
 
 ```shell
-curl -i -XGET http\://api.resourcewatch.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ \*\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ \ where\ year\ between\ 1960\ and\ 1962&geostore\=0279093c278a64f4c3348ff63e4cfce0
+curl -i -XGET http\://api.apihighways.org/v1/query/b99c5f5e-00c6-452e-877c-ced2b9f0b393\?sql\=select\ \*\ from\ nexgddp-historical-ACCESS1_0-prmaxday\ \ where\ year\ between\ 1960\ and\ 1962&geostore\=0279093c278a64f4c3348ff63e4cfce0
 ```

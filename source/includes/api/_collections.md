@@ -31,7 +31,7 @@ To create a collection, you need to define all next fields in the request body. 
 
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/collection \
+curl -X POST https://api.apihighways.org/v1/collection \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
  '{
@@ -44,7 +44,7 @@ curl -X POST https://api.resourcewatch.org/v1/collection \
 
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/collection \
+curl -X POST https://api.apihighways.org/v1/collection \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
  '{
@@ -73,7 +73,7 @@ To create a collection, you need to define all next fields in the request body. 
 
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/collection/:id/resource \
+curl -X POST https://api.apihighways.org/v1/collection/:id/resource \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
  '{
@@ -90,7 +90,7 @@ This endpoint returns the collections of the logged user.
 
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/collection \
+curl -X GET https://api.apihighways.org/v1/collection \
 -H "Authorization: Bearer <your-token>"
 ```
 
@@ -102,7 +102,7 @@ This endpoint returns the collection with id of the param. If the collection bel
 
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/collection/:id \
+curl -X GET https://api.apihighways.org/v1/collection/:id \
 -H "Authorization: Bearer <your-token>"
 ```
 
@@ -114,7 +114,7 @@ This endpoint deletes the collection with id of the param. If the collection bel
 
 
 ```shell
-curl -X DELETE https://api.resourcewatch.org/v1/collection/:id \
+curl -X DELETE https://api.apihighways.org/v1/collection/:id \
 -H "Authorization: Bearer <your-token>"
 ```
 
@@ -126,6 +126,6 @@ Using this endpoint you can also delete a resource in a collection with the id, 
 
 
 ```shell
-curl -X DELETE https://api.resourcewatch.org/v1/collection/:id/resource/:resourceType/:resourceId \
+curl -X DELETE https://api.apihighways.org/v1/collection/:id/resource/:resourceType/:resourceId \
 -H "Authorization: Bearer <your-token>"
 ```

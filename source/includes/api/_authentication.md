@@ -26,7 +26,7 @@ You can login with your DH credentials (email and password) or with other auth p
 To create a new user make a request like the one in the sidebar:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/auth/user \
+curl -X POST https://api.apihighways.org/auth/user \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
  '{

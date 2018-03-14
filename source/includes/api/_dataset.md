@@ -71,7 +71,7 @@ This endpoint will allow to get all datasets available in the API:
 
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset
+curl -X GET https://api.apihighways.org/v1/dataset
 ```
 
 > Response:
@@ -117,11 +117,11 @@ curl -X GET https://api.resourcewatch.org/v1/dataset
     ...
   ],
   "links": {
-    "self": "http://api.resourcewatch.org/v1/dataset?page[number]=1&page[size]=10",
-    "first": "http://api.resourcewatch.org/v1/dataset?page[number]=1&page[size]=10",
-    "last": "http://api.resourcewatch.org/v1/dataset?page[number]=99&page[size]=10",
-    "prev": "http://api.resourcewatch.org/v1/dataset?page[number]=1&page[size]=10",
-    "next": "http://api.resourcewatch.org/v1/dataset?page[number]=2&page[size]=10"
+    "self": "http://api.apihighways.org/v1/dataset?page[number]=1&page[size]=10",
+    "first": "http://api.apihighways.org/v1/dataset?page[number]=1&page[size]=10",
+    "last": "http://api.apihighways.org/v1/dataset?page[number]=99&page[size]=10",
+    "prev": "http://api.apihighways.org/v1/dataset?page[number]=1&page[size]=10",
+    "next": "http://api.apihighways.org/v1/dataset?page[number]=2&page[size]=10"
   },
   "meta": {
     "total-pages": 99,
@@ -164,13 +164,13 @@ geoInfo       | If it contains intersectable geographical info                  
 > Filtering datasets
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?name=birds&provider=cartodb
+curl -X GET https://api.apihighways.org/v1/dataset?name=birds&provider=cartodb
 ```
 
 > For inclusive filtering with array props use '@'
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?app=data4sdgs@anotherapp
+curl -X GET https://api.apihighways.org/v1/dataset?app=data4sdgs@anotherapp
 ```
 
 ### Sorting
@@ -180,11 +180,11 @@ You can sort by any dataset property. Prefix with '-' for a 'desc' ordering.
 > Sorting datasets
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?sort=-provider,slug
+curl -X GET https://api.apihighways.org/v1/dataset?sort=-provider,slug
 ```
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?sort=slug,-provider,userId&status=saved
+curl -X GET https://api.apihighways.org/v1/dataset?sort=slug,-provider,userId&status=saved
 ```
 
 ### Relationships
@@ -194,7 +194,7 @@ Available relationships: Any dataset relationship ['widget', 'layer', 'vocabular
 > Including relationships
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer
+curl -X GET https://api.apihighways.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer
 ```
 
 ### Advanced filters
@@ -204,7 +204,7 @@ By vocabulary-tag matching
 > Matching vocabulary tags
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer&vocabulary[legacy]=umd
+curl -X GET https://api.apihighways.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer&vocabulary[legacy]=umd
 ```
 
 ### Pagination
@@ -217,8 +217,8 @@ page[number] |       The page number        | Number
 > Paginating the output
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer&vocabulary[legacy]=threshold&page[number]=1
-curl -X GET https://api.resourcewatch.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer&vocabulary[legacy]=threshold&page[number]=2
+curl -X GET https://api.apihighways.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer&vocabulary[legacy]=threshold&page[number]=1
+curl -X GET https://api.apihighways.org/v1/dataset?sort=slug,-provider,userId&status=saved&includes=metadata,vocabulary,widget,layer&vocabulary[legacy]=threshold&page[number]=2
 ```
 
 ## How to get a specific dataset
@@ -226,7 +226,7 @@ curl -X GET https://api.resourcewatch.org/v1/dataset?sort=slug,-provider,userId&
 > To get a dataset:
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset/51943691-eebc-4cb4-bdfb-057ad4fc2145
+curl -X GET https://api.apihighways.org/v1/dataset/51943691-eebc-4cb4-bdfb-057ad4fc2145
 ```
 
 > Response:
@@ -270,7 +270,7 @@ curl -X GET https://api.resourcewatch.org/v1/dataset/51943691-eebc-4cb4-bdfb-057
 > To get the dataset including its relationships:
 
 ```shell
-curl -X GET https://api.resourcewatch.org/v1/dataset/06c44f9a-aae7-401e-874c-de13b7764959?includes=metadata,vocabulary,widget,layer
+curl -X GET https://api.apihighways.org/v1/dataset/06c44f9a-aae7-401e-874c-de13b7764959?includes=metadata,vocabulary,widget,layer
 ```
 
 ## Creating a Dataset
@@ -308,7 +308,7 @@ There are some differences between datasets types.
 ### Rest-Carto datasets
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
  '{
@@ -325,7 +325,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 > A real example:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -346,7 +346,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 ### Rest-ArcGIS feature Service
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -367,7 +367,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 ### Rest-GEE
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -384,7 +384,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 ### Rest-NEXGDDP
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -403,7 +403,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 The `connectorUrl` must be a URL pointing to a valid geotiff file.
 
 ```shell
-curl -XPOST 'https://api.resourcewatch.org/v1/dataset' -d \
+curl -XPOST 'https://api.apihighways.org/v1/dataset' -d \
 -H 'Authorization: Bearer <your-token>'  \
 -H 'Content-Type: application/json' -d \
 '{
@@ -435,7 +435,7 @@ legend     |                                                | Object |          
 z
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -459,7 +459,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 > Real example:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -504,7 +504,7 @@ legend     |                                                               | Obj
 </aside>
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -528,7 +528,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 It is also possible to create a JSON dataset by including the data directly in the request:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -558,7 +558,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset \
 You can upload your raw data directly to S3 making use of the "upload" endpoint. This endpoint accepts a file in the property "dataset" and returns a valid connectorUrl. With this connectorUrl you can create or update a "document" dataset, or a raster dataset in the Rasdaman adapter.
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset/upload \
+curl -X POST https://api.apihighways.org/v1/dataset/upload \
 -H "Authorization: Bearer <your-token>" \
 -F provider=csv,
 -F dataset=@<your-file>
@@ -575,7 +575,7 @@ It returns the following information:
 ```
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"
 '{
@@ -596,7 +596,7 @@ In order to modify the dataset, you can PATCH a request. It accepts the same par
 > An example update request:
 
 ```shell
-curl -X PATCH https://api.resourcewatch.org/v1/dataset/<dataset-id> \
+curl -X PATCH https://api.apihighways.org/v1/dataset/<dataset-id> \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json" -d \
 '{
@@ -613,7 +613,7 @@ curl -X PATCH https://api.resourcewatch.org/v1/dataset/<dataset-id> \
 **When a dataset is deleted the user's applications that were present on the dataset will be removed from it. If this results in a dataset without applications, the dataset itself will be then deleted.**
 
 ```shell
-curl -X DELETE https://api.resourcewatch.org/v1/dataset/<dataset-id> \
+curl -X DELETE https://api.apihighways.org/v1/dataset/<dataset-id> \
 -H "Authorization: Bearer <your-token>"
 -H "Content-Type: application/json"
 ```
@@ -625,7 +625,7 @@ curl -X DELETE https://api.resourcewatch.org/v1/dataset/<dataset-id> \
 ## Cloning a Dataset
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset/5306fd54-df71-4e20-8b34-2ff464ab28be/clone \
+curl -X POST https://api.apihighways.org/v1/dataset/5306fd54-df71-4e20-8b34-2ff464ab28be/clone \
 -H "Authorization: Bearer <your-token>"
 -H "Content-Type: application/json" -d \
 '{
@@ -650,7 +650,7 @@ You can add more data to a dataset only if the overwrite dataset property has be
 > Concatenate data using external data source:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/concat \
+curl -X POST https://api.apihighways.org/v1/dataset/:dataset_id/concat \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -662,7 +662,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/concat \
 > Concatenate data using JSON array in post body:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/concat \
+curl -X POST https://api.apihighways.org/v1/dataset/:dataset_id/concat \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -681,7 +681,7 @@ You can overwrite the data if the overwrite dataset property has been set to tru
 > Overwrite data using external data source:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/data-overwrite \
+curl -X POST https://api.apihighways.org/v1/dataset/:dataset_id/data-overwrite \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -693,7 +693,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/data-overwrite
 > Overwrite data using JSON array in post body:
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/data-overwrite \
+curl -X POST https://api.apihighways.org/v1/dataset/:dataset_id/data-overwrite \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -710,7 +710,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/data-overwrite
 You can overwrite specific data if the overwrite dataset property has been set to true.
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/data/:data_id \
+curl -X POST https://api.apihighways.org/v1/dataset/:dataset_id/data/:data_id \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
@@ -728,7 +728,7 @@ curl -X POST https://api.resourcewatch.org/v1/dataset/:dataset_id/data/:data_id 
 You can delete specific data if the overwrite dataset property has been set to true.
 
 ```shell
-curl -X DELETE https://api.resourcewatch.org/v1/dataset/:dataset_id/data/:data_id \
+curl -X DELETE https://api.apihighways.org/v1/dataset/:dataset_id/data/:data_id \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"
 ```
@@ -744,7 +744,7 @@ To sync the data of a dataset, you need to choose the action type (concat or ove
 Please be sure that the 'overwrite' property is set to true. This could be used as a lock in order to not allow new updates even if the sync task is actually created.
 
 ```shell
-curl -X POST https://api.resourcewatch.org/v1/dataset \
+curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"
 '{
