@@ -6,36 +6,33 @@ Metadata can be any kind of data associated to an existing resource (i.e. Datase
 
 Some fields are important to identify the entity properly; others are just optional and give extra information about it.
 
-| Field             | Description                                                       | Type
-| ------------------|:-----------------------------------------:                        | -----:
-| application       | The metadata application                                          | String
-| language          | The metadata language                                             | String
-| dataset           | The associated dataset id to the metadata                         | String
-| resource          | The resource associated to the metadata                           | Object
-| -- id             | Resource id                                                       | String
-| -- type           | Resource type                                                     | String
-| name              | The metadata name                                                 | String
-| description       | The metadata description                                          | String
-| source            | The metadata source                                               | String
-| citation          | The metadata citation                                             | String
-| license           | The metadata license type                                         | String
-| info              | Some info about the metadata                                      | Object
-| units             | Measurement units                                                 | Object
+| Field              | Description                                                              | Type
+| -------------------|:-----------------------------------------:                               | -----:
+| application        | The metadata application                                                 | String
+| language           | The metadata language                                                    | String
+| sourceOrganization | Name of the organization sourcing the data (eg. World Bank)              | String
+| dataSourceUrl      | Link to the human-friendly web page of the source dataset (eg. link to WB website) | String
+| dataSourceEndpoint | The API endpoint or URL to the machine-readable dataset itself           | String
+| dataDownloadUrl    | URL to API Highways export endpoint to download the given dataset        | JSON Object
+| license            | Should be one option from this list: https://data.world/license-help     | String
+| info               | Open-ended field that can include dataset-specific fields for metadata   | JSON Object
+| units              | Measurement units | JSON Object
 
 ## Creating a metadata object
 
-| Field             | Required/Optional                                                      
-| ------------------|:-----------------------------------------:     
-| application       | required                                                             
-| language          | required                                          
-| dataset           | required                                                                
-| name              | optional                                            
-| description       | optional                                        
-| source            | optional                                             
-| citation          | optional                                             
-| license           | optional                                        
-| info              | optional                                      
-| units             | optional                                             
+| Field              | Required/Optional                                                      
+| -------------------|:-----------------------------------------:     
+| application        | required                                                             
+| language           | required                                          
+| sourceOrganization | required                                                                
+| dataSourceUrl      | required                                                                
+| name               | required                                            
+| description        | optional                                        
+| source             | optional                                             
+| citation           | optional                                             
+| license            | optional                                        
+| info               | optional                                      
+| units              | optional                                             
 
 The "application" and "language" attributes are required and it is mandatory to include them in the payload.
 
