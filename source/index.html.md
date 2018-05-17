@@ -27,4 +27,20 @@ search: true
 
 # Introduction
 
-Welcome to the Data Highways API Documentation
+Welcome to the Data Highways API Documentation. This API documentation covers a
+wide range of use cases, from querying data to uploading your own datasets. Some of 
+the most common use cases include:
+
+- [Searching for a dataset](#filters)
+- [Querying a given dataset](#query)
+- [Accessing metadata](#getting-metadata)
+
+
+The API also supports more advanced uses cases, for which you may need to be authenticated
+and have special permissions given by an admin. There may include:
+
+- [Uploading your own dataset](#creating-a-dataset)
+- [Updating an existing dataset](#updating-a-dataset)
+- [Creating](#creating-a-metadata-object) or [updating](#updating-a-metadata) metadata for a dataset
+- [Deleting a dataset](#deleting-a-dataset)
+
