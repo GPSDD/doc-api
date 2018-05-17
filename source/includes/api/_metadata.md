@@ -127,6 +127,11 @@ limit filter:
 limit: the desired number
 ```
 
+Output format: Uses 'json' by default, can also be set to 'datajson' to output data in [data.json](https://project-open-data.cio.gov/metadata-resources/) format.
+```
+format: <empty>|'json'|'datajson' 
+```
+
 Custom param for /metadata endpoint:
 ```
 type: [dataset, widget, layer]
@@ -134,6 +139,10 @@ type: [dataset, widget, layer]
 
 ```shell
 curl -X GET https://api.apihighways.org/v1/dataset/<dataset-id>/metadata
+```
+
+```shell
+curl -X GET https://api.apihighways.org/v1/dataset/<dataset-id>/metadata?format=datajson
 ```
 
 ```shell
@@ -233,6 +242,11 @@ curl -X DELETE https://api.apihighways.org/v1/dataset/942b3f38-9504-4273-af51-04
 
 ## Getting all
 
+Output format: Uses 'json' by default, can also be set to 'datajson' to output data in [data.json](https://project-open-data.cio.gov/metadata-resources/) format.
+```
+format: <empty>|'json'|'datajson' 
+```
+
 
 ```shell
 curl -X GET https://api.apihighways.org/v1/metadata
@@ -242,6 +256,10 @@ curl -X GET https://api.apihighways.org/v1/metadata
 
 ```shell
 curl -X GET https://api.apihighways.org/v1/metadata
+```
+
+```shell
+curl -X GET https://api.apihighways.org/v1/metadata?format=datajson
 ```
 
 ```shell
