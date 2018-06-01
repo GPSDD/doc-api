@@ -364,22 +364,210 @@ curl -X POST https://api.apihighways.org/v1/dataset \
     This is an authenticated endpoint!
 </aside>
 
-### Rest-GEE
+### Google Earth Engine
+
+Google Earth Engine supports several kinds of datasets.
+What kind of queries are possible is determined by its kind.
+
+#### Google Earth Engine - Image
+
+This example shows how to register an [Image](https://developers.google.com/earth-engine/image_overview). 
+The IDs can be obtained from the [Google Earth Engine explorer](https://explorer.earthengine.google.com/#workspace) -- linking directly to the dataset is not possible.
 
 ```shell
 curl -X POST https://api.apihighways.org/v1/dataset \
 -H "Authorization: Bearer <your-token>" \
 -H "Content-Type: application/json"  -d \
 '{
-    "connectorType":"rest",
-    "provider":"gee",
-    "tableName": "JRC/GSW1_0/GlobalSurfaceWater"
-    "application":[
-     "data4sdgs"
-    ],
-    "name":"Water occurrence"
+    "name": "umd_hansen_global_forest_change_2015",
+    "connectorType": "rest",
+    "provider": "gee",
+    "application": ["data4sdgs"],
+    "tableName": "UMD/hansen/global_forest_change_2015_v1_3"
 }'
 ```
+
+> Response
+
+```json
+{
+   "data": {
+      "attributes": {
+         "application": [
+            "data4sdgs"
+         ],
+         "attributesPath": null,
+         "blockchain": {},
+         "clonedHost": {},
+         "connectorType": "rest",
+         "connectorUrl": null,
+         "dataPath": null,
+         "env": "production",
+         "errorMessage": null,
+         "geoInfo": false,
+         "layerRelevantProps": [],
+         "legend": {
+            "country": [],
+            "date": [],
+            "nested": [],
+            "region": []
+         },
+         "mainDateField": null,
+         "name": "umd_hansen_global_forest_change_2015",
+         "overwrite": false,
+         "protected": false,
+         "provider": "gee",
+         "published": true,
+         "slug": "umd_hansen_global_forest_change_2015",
+         "status": "pending",
+         "subtitle": null,
+         "tableName": "UMD/hansen/global_forest_change_2015_v1_3",
+         "taskId": null,
+         "type": null,
+         "updatedAt": "2018-05-14T17:09:54.102Z",
+         "userId": "599c0e5458113b0001d75c47",
+         "verified": false,
+         "widgetRelevantProps": []
+      },
+      "id": "4f507b39-2653-41f9-a880-766baa5a0c47",
+      "type": "dataset"
+   }
+}
+```
+
+
+#### Google Earth Engine - ImageCollections
+
+[ImageCollections](https://developers.google.com/earth-engine/ic_creating) are sets of images. 
+They can be registered as datasets, but queries are done to the information of the `ImageCollection`, not the `Images` themselves. 
+We'll use the Copernicus S2 1C imagery as an example.
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+'{
+    "name": "COPERNICUS S2 Level 1C imagery",
+    "connectorType": "rest",
+    "provider": "gee",
+    "application": ["data4sdgs"],
+    "tableName": "COPERNICUS/S2"
+}'
+```
+
+> Response
+
+```json
+{
+   "data": {
+      "attributes": {
+         "application": [
+            "data4sdgs"
+         ],
+         "attributesPath": null,
+         "blockchain": {},
+         "clonedHost": {},
+         "connectorType": "rest",
+         "connectorUrl": null,
+         "dataPath": null,
+         "env": "production",
+         "errorMessage": null,
+         "geoInfo": false,
+         "layerRelevantProps": [],
+         "legend": {
+            "country": [],
+            "date": [],
+            "nested": [],
+            "region": []
+         },
+         "mainDateField": null,
+         "name": "COPERNICUS S2 Level 1C imagery",
+         "overwrite": false,
+         "protected": false,
+         "provider": "gee",
+         "published": true,
+         "slug": "COPERNICUS-S2-Level-1C-imagery",
+         "status": "pending",
+         "subtitle": null,
+         "tableName": "COPERNICUS/S2",
+         "taskId": null,
+         "type": null,
+         "updatedAt": "2018-05-14T17:35:33.537Z",
+         "userId": "599c0e5458113b0001d75c47",
+         "verified": false,
+         "widgetRelevantProps": []
+      },
+      "id": "c38673bf-29a6-4b75-9099-4314ce269a31",
+      "type": "dataset"
+   }
+}
+```
+
+#### Google Earth Engine - FeatureCollections
+
+[FeatureCollections](https://developers.google.com/earth-engine/feature_collections) are the homologue of vector layers in the Google Earth Engine ecosystem.
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+'{
+    "name": "Global Land Ice Measurements 2016",
+    "connectorType": "rest",
+    "provider": "gee",
+    "application": ["data4sdgs"],
+    "tableName": "GLIMS/2016"
+}'
+```
+
+> Response
+
+```json
+{
+   "data": {
+      "attributes": {
+         "application": [
+            "data4sdgs"
+         ],
+         "attributesPath": null,
+         "blockchain": {},
+         "clonedHost": {},
+         "connectorType": "rest",
+         "connectorUrl": null,
+         "dataPath": null,
+         "env": "production",
+         "errorMessage": null,
+         "geoInfo": false,
+         "layerRelevantProps": [],
+         "legend": {
+            "country": [],
+            "date": [],
+            "nested": [],
+            "region": []
+         },
+         "mainDateField": null,
+         "name": "Global Land Ice Measurements 2016",
+         "overwrite": false,
+         "protected": false,
+         "provider": "gee",
+         "published": true,
+         "slug": "Global-Land-Ice-Measurements-2016",
+         "status": "pending",
+         "subtitle": null,
+         "tableName": "GLIMS/2016",
+         "taskId": null,
+         "type": null,
+         "updatedAt": "2018-05-14T18:05:29.282Z",
+         "userId": "599c0e5458113b0001d75c47",
+         "verified": false,
+         "widgetRelevantProps": []
+      },
+      "id": "7416e29b-908a-4e06-a9b0-8bebb1e435b7",
+      "type": "dataset"
+   }
+}
+```
+
 
 ### Rest-NEXGDDP
 
