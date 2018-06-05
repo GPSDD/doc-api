@@ -12,7 +12,7 @@ curl -X GET https://api.apihighways.org/v1/graph/query/list-concepts
 
 ### Query example
 
-```
+```json
 {
   "data": [
     {
