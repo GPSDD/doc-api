@@ -165,6 +165,11 @@ Partial update:
 
 The "application" and "language" attributes are required and it is mandatory to include them in the payload.
 
+<aside class="notice">
+    Metadata updates done to datasets of index connectors (e.g. World Bank) may be overwritten by the connector's schedule metadata autoupdate. 
+</aside>
+
+
 ```shell
 curl -X PATCH https://api.apihighways.org/v1/dataset/<dataset-id>/metadata \
 -H "Content-Type: application/json"  -d \

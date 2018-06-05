@@ -285,7 +285,7 @@ name                |                                                      Datas
 type                |                                                      Dataset type                                                      |    Text |                                                                                                              Any Text |                                                No
 subtitle            |                                                    Dataset subtitle                                                    |    Text |                                                                                                              Any Text |                                                No
 application         |                                          Applications the dataset belongs to                                           |   Array |                                                                                         Any valid application name(s) |                                               Yes
-sandbox         |                                          Dataset in the sandbox                                           |   Boolean |                                                                                         true/false |                                               No
+sandbox             |                                          Dataset in the sandbox                                                        | Boolean |                                                                                                            true/false |                                                No
 connectorType       |                                                     Connector type                                                     |    Text |                                                                                                   rest, document, wms |                                               Yes
 provider            |                                               The connectorType provider                                               |    Text |                                                           cartodb, feature service, gee, csv, tsv, xml, json, nexgddp |                                               Yes
 connectorUrl        |                                                 Url of the data source                                                 |     Url |                                                                                                               Any url |    Yes (except for gee, nexgddp and json formats)
@@ -740,6 +740,44 @@ curl -X POST https://api.apihighways.org/v1/dataset \
     "name":"Example JSON Dataset"
 }'
 ```
+
+### World Bank datasets (index)
+
+The World Bank (WB) connector allows indexing datasets which data is available on the WB API.
+Datasets created using the WB type are indexed only, so several operations, like querying data or structure, are not available.
+However, they will still be presented in dataset list and search operations.
+Additionally, metadata for these datasets will be automatically generated when the dataset is created, based on metadata served by the WB API.
+You can find details about this mapping [here](https://github.com/GPSDD/world-bank-index-adapter#field-correspondence).
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Your prefered name for the dataset",
+    "provider": "worldbank",
+    "connectorType": "rest", 
+    "tableName":"<name of the indicator in the WB API>"
+  }'
+```
+
+> A real example:
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Coverage of social insurance programs (% of population)",
+    "provider": "worldbank",
+    "connectorType": "rest", 
+    "tableName":"per_si_allsi.cov_pop_tot"
+  }'
+```
+
+<aside class="notice">
+    This is an authenticated endpoint!
+</aside>
 
 ## Uploading a Dataset (Binary)
 
