@@ -779,6 +779,54 @@ curl -X POST https://api.apihighways.org/v1/dataset \
     This is an authenticated endpoint!
 </aside>
 
+### Resource Watch API datasets (index)
+
+The Resource Watch API (RW) connector allows indexing datasets which data is available on the RW API.
+Datasets created using the RW type are indexed only, so several operations, like querying data or structure, are not available.
+However, they will still be presented in dataset list and search operations.
+Additionally, metadata for these datasets will be automatically generated when the dataset is created, based on metadata served by the RW API.
+You can find details about this mapping [here](https://github.com/GPSDD/resource-watch-index-adapter#field-correspondence).
+
+Note that the RW API serves more than just the RW website, so RW API datasets may feature details associated with other applications
+served by the RW API (Aqueduct, GFW, etc). Also, due to this, a single RW dataset may have multiple metadata objects, for different
+application and language combinations. To account for this, the RW indexing connector accepts optional `sourceLanguage` and `sourceApplication`
+parameters. When specified, this allow choosing which metadata object to use when indexing RW datasets and generating their corresponding
+API Highways metadata. If none are provided, one of the objects is picked, based on the order in which the RW metadata enpoint serves them.
+Whenever possible, it's recommended that you specify both parameters, ensuring they match an existing metadata object on the RW API.
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Your prefered name for the dataset",
+    "provider": "resourcewatch",
+    "connectorType": "rest", 
+    "tableName":"<id of the dataset in the RW API>",
+    "sourceLanguage":"<language of the RW metadata to use>",
+    "sourceApplication":"<application of the RW metadata to use>"
+  }'
+```
+
+> A real example:
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "All Worldwide Crops",
+    "provider": "resourcewatch",
+    "connectorType": "rest", 
+    "tableName":"b7bf012f-4b8b-4478-b5c9-6af3075ca1e4",
+    "sourceLanguage": "en"
+  }'
+```
+
+<aside class="notice">
+    This is an authenticated endpoint!
+</aside>
+
 ## Uploading a Dataset (Binary)
 
 You can upload your raw data directly to S3 making use of the "upload" endpoint. This endpoint accepts a file in the property "dataset" and returns a valid connectorUrl. With this connectorUrl you can create or update a "document" dataset, or a raster dataset in the Rasdaman adapter.
