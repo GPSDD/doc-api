@@ -207,6 +207,25 @@ curl -X GET https://api.apihighways.org/v1/query?sql=SELECT ST_HISTOGRAM(raster,
 }
 ```
 
+Several PostGIS operations are supported on GEE Image queries: [ST_HISTOGRAM](https://postgis.net/docs/RT_ST_Histogram.html), [ST_BANDMETADATA](https://postgis.net/docs/RT_ST_BandMetaData.html), [ST_SUMMARYSTATS](https://postgis.net/docs/RT_ST_SummaryStats.html) and [ST_VALUECOUNT](https://postgis.net/docs/RT_ST_ValueCount.html).
+
+```shell
+curl -X GET https://api.apihighways.org/v1/query?sql=select ST_BANDMETADATA(raster, {:band_name}) FROM  {:dataset_slug} \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"
+```
+
+```shell
+curl -X GET https://api.apihighways.org/v1/query?sql=select ST_SUMMARYSTATS({:band_name}) FROM  {:dataset_slug} \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"
+```
+
+```shell
+curl -X GET https://api.apihighways.org/v1/query?sql=select ST_VALUECOUNT(raster, {:band_name}, true) FROM  {:dataset_slug} \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"
+```
 
 ### Querying a GEE ImageCollection
 
