@@ -827,6 +827,41 @@ curl -X POST https://api.apihighways.org/v1/dataset \
     This is an authenticated endpoint!
 </aside>
 
+### Generic datasets (index)
+
+You can create a generic dataset reference in API Highways. This type of dataset does not serve any data - it serves only for indexing
+purposes - and, unlike other index connectors, does not generate and update metadata automatically. While not enforced, it's highly
+recommended that, when creating the dataset, you set the corresponding metadata. The metadata's required fields should point to the
+dataset's data source, which will ensure this dataset serves its purpose - index a 3rd party datasets from virtually any source.
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Your prefered name for the dataset",
+    "provider": "genericindex",
+    "connectorType": "rest" 
+  }'
+```
+
+> A real example:
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "test index dataset",
+    "provider": "genericindex",
+    "connectorType": "rest"
+  }'
+```
+
+<aside class="notice">
+    This is an authenticated endpoint!
+</aside>
+
 ## Uploading a Dataset (Binary)
 
 You can upload your raw data directly to S3 making use of the "upload" endpoint. This endpoint accepts a file in the property "dataset" and returns a valid connectorUrl. With this connectorUrl you can create or update a "document" dataset, or a raster dataset in the Rasdaman adapter.
