@@ -827,6 +827,86 @@ curl -X POST https://api.apihighways.org/v1/dataset \
     This is an authenticated endpoint!
 </aside>
 
+### HDX API datasets (index)
+
+The HDX connector allows indexing datasets which data is available on the [Humanitarian Data Exchange](https://data.humdata.org/) API.
+Datasets created using the API type are indexed only, so several operations, like querying data or structure, are not available.
+However, they will still be presented in dataset list and search operations.
+Additionally, metadata for these datasets will be automatically generated when the dataset is created, based on metadata served by the API API.
+You can find details about this mapping [here](https://github.com/GPSDD/hdx-index-connector#field-correspondence).
+
+Note that, due to fundamental differences in data structures between this API and HDX's, not all HDX datasets (also known as `packages`) are supported.
+For additional details on what's supported and what's not, read the [connector documentation](https://github.com/GPSDD/hdx-index-connector#field-correspondence).
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Your prefered name for the dataset",
+    "provider": "hdx",
+    "connectorType": "rest", 
+    "tableName":"<id of the package in the HDX API>"
+  }'
+```
+
+> A real example:
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Sierra Leone health facilities",
+    "provider": "hdx",
+    "connectorType": "rest", 
+    "tableName":"141121-sierra-leone-health-facilities"
+  }'
+```
+
+<aside class="notice">
+    This is an authenticated endpoint!
+</aside>
+
+
+### UN API datasets (index)
+
+The UN connector allows indexing datasets which data is available on the [The United Nations Statistics Division](https://unstats.un.org/) API.
+Datasets created using the API type are indexed only, so several operations, like querying data or structure, are not available.
+However, they will still be presented in dataset list and search operations.
+Additionally, metadata for these datasets will be automatically generated when the dataset is created, based on metadata served by the API API.
+You can find details about this mapping [here](https://github.com/GPSDD/un-index-connector#field-correspondence).
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Your prefered name for the dataset",
+    "provider": "un",
+    "connectorType": "rest", 
+    "tableName":"<id of the dataset in the UN API>"
+  }'
+```
+
+> A real example:
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+    "name": "Development assistance for water supply and sanitation",
+    "provider": "un",
+    "connectorType": "rest", 
+    "tableName":"DC_TOF_WASHL"
+  }'
+```
+
+<aside class="notice">
+    This is an authenticated endpoint!
+</aside>
+
 ### Generic datasets (index)
 
 You can create a generic dataset reference in API Highways. This type of dataset does not serve any data - it serves only for indexing
