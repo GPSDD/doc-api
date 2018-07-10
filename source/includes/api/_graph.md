@@ -10,7 +10,23 @@ Returns a list including all the concepts present in the graph
 curl -X GET https://api.apihighways.org/v1/graph/query/list-concepts
 ```
 
+## Tag with a graph concept
+
+Tagging resources using the graph concepts is done through the vocabulary API, using the special `knowledge_graph` vocabulary name.
+
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset/<dataset-id>/vocabulary/knowledge_graph \
+-H "Content-Type: application/json"  -d \
+ '{
+   "tags": [<tags>]
+  }'
+```
+
+For more information and additional documentation, refer to [the vocabulary documentation](#vocabulary-and-tags).
+
 ### Query example
+
 
 ```json
 {
