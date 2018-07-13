@@ -669,6 +669,51 @@ curl -X POST https://api.apihighways.org/v1/dataset \
     This is an authenticated endpoint!
 </aside>
 
+### Big Query
+
+The `tableName` must be the path of an accessible public Big Query Dataset.  View documentation [here](https://cloud.google.com/bigquery/docs/)
+
+z
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+  "connectorType": "rest",
+  "provider": "bigquery",
+  "tableName": "[table path]",
+  "application": [
+    "data4sdgs"
+  ],
+  "name": "Example Big Query Dataset"
+}'
+
+```
+
+> Real example:
+
+```shell
+curl -X POST https://api.apihighways.org/v1/dataset \
+-H "Authorization: Bearer <your-token>" \
+-H "Content-Type: application/json"  -d \
+ '{
+  "connectorType": "rest",
+  "provider": "bigquery",
+  "tableName": "[bigquery-public-data.world_bank_intl_education.international_education]",
+  "application": [
+    "data4sdgs"
+  ],
+  "name": "World Bank: Education Data. Contains key education statistics from a variety of sources to provide a look at global literacy, spending, and access"
+}'
+
+```
+
+<aside class="notice">
+    This is an authenticated endpoint!
+</aside>
+
+
 ### Document-JSON
 
 The JSON dataset service supports data from external json file or data as json array send in request body.
