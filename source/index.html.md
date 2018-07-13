@@ -18,6 +18,7 @@ includes:
   - api/geostore
   - api/favourites
   - api/graph
+  - api/metrics
   - errors
 
 logo: logo-api-highways.svg
