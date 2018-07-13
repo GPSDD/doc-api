@@ -673,7 +673,6 @@ curl -X POST https://api.apihighways.org/v1/dataset \
 
 The `tableName` must be the path of an accessible public Big Query Dataset.  View documentation [here](https://cloud.google.com/bigquery/docs/)
 
-z
 
 ```shell
 curl -X POST https://api.apihighways.org/v1/dataset \
