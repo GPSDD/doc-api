@@ -671,7 +671,7 @@ curl -X POST https://api.apihighways.org/v1/dataset \
 
 ### Big Query
 
-The `tableName` must be the path of an accessible public Big Query Dataset.  View documentation [here](https://cloud.google.com/bigquery/docs/)
+The `tableName` must be the path of an accessible public Big Query Dataset. The `tableName` format is `owner:table.name` (e.g. `bigquery-public-data:world_bank_intl_education.international_education`). View detailed documentation [here](https://cloud.google.com/bigquery/docs/).
 
 
 ```shell
@@ -699,7 +699,7 @@ curl -X POST https://api.apihighways.org/v1/dataset \
  '{
   "connectorType": "rest",
   "provider": "bigquery",
-  "tableName": "[bigquery-public-data.world_bank_intl_education.international_education]",
+  "tableName": "[bigquery-public-data:world_bank_intl_education.international_education]",
   "application": [
     "data4sdgs"
   ],
