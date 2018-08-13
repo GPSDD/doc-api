@@ -13,10 +13,7 @@ To generate your own token, perform the following steps:
 
 You can login with your DH credentials (email and password) or with other auth providers (a Google, Facebook, or Twitter account). If you can't remember your password (don't worry! it happens to everyone!) you can reset your password clicking on 'Recover password'.
 
-2. After logging in you will be redirected to the Control Tower application and you will see its front page:
-![Control Tower Dashboard](images/authentication/control-tower.png)
+2. After logging in you will be redirected to the generate token page where you can generate your authentication token to access the API:
+![Generate Token](images/authentication/generatetoken.png)
 
-3. To obtain your token, click in the Profile menu item and you will see the token:
-![Control Tower Profile](images/authentication/profile.png)
-
-4. Copy your token clicking the Copy button. Remember to add the header `Authorization: Bearer: <yourToken>` to any API call to authenticate yourself.
+3. Copy your token clicking the Copy button. Remember to add the header `Authorization: Bearer: <yourToken>` to any API call to authenticate yourself.
