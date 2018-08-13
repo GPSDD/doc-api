@@ -7,7 +7,7 @@ The DH API uses JWT [(JSON Web Tokens)](https://tools.ietf.org/html/rfc7519) to 
 To generate your own token, perform the following steps:
 
 
-1. Navigate to [here](http://ui.apihighways.org/). If you aren't logged in yet, the application will redirect you to the login page. You will see the login page:
+1. Navigate to [here](http://api.apihighways.org/auth/login?callbackUrl=https://www.apihighways.org/token&token=true). If you aren't logged in yet, the application will redirect you to the login page. You will see the login page:
 
 ![Control Tower login page](images/authentication/login.png)
 
