@@ -20,24 +20,3 @@ You can login with your DH credentials (email and password) or with other auth p
 ![Control Tower Profile](images/authentication/profile.png)
 
 4. Copy your token clicking the Copy button. Remember to add the header `Authorization: Bearer: <yourToken>` to any API call to authenticate yourself.
-
-## How to create a new user
-
-To create a new user make a request like the one in the sidebar:
-
-```shell
-curl -X POST https://api.apihighways.org/auth/user \
--H "Authorization: Bearer <your-token>" \
--H "Content-Type: application/json"  -d \
- '{
-    "email":"<email>",
-    "role":"<role>",
-    "extraUserData": {
-      "apps": [
-        "<apps>"
-      ]
-    }
-}'
-```
-
-There are three allowed roles: `USER`, `MANAGER` and `ADMIN`. The 'apps' field should have the `data4sdgs` application.
